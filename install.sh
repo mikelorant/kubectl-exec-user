@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Starting..."
+
 ls -ltr .
 
 mkdir -p ~/.kube/plugins
