@@ -16,6 +16,21 @@ Run the install script:
 
 ## Usage
 
+```
+kubectl plugin exec-user $POD $COMMAND
+```
+
+If the command is not specified, falls back to the `sh` command.
+
+**Flags**
+
+| Name      | Shorthand | Default | Usage                                                                     |
+|-----------|-----------|---------|---------------------------------------------------------------------------|
+| user      | -u        | root    | Username or UID.                                                          |
+| container | -c        |         | Container name. If omitted, the first container in the pod will be chosen |
+
+## Examples
+
 Exec into first container in `example` pod with `sh` as user `root`.
 ```
 kubectl plugin exec-user example
