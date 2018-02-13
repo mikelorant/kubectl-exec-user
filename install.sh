@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-env
-
-ls -l ~
+ls -ltr .
 
 mkdir -p ~/.kube/plugins
 
