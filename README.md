@@ -2,6 +2,10 @@
 
 ## Overview
 
+Exec as a specified user into a Kubernetes container.
+
+This works by creating a pod on the name node as the container and mapping the docker socket into this container. The container runs docker which is able to use the exec command with the `--user` argument.
+
 ## Install
 
 Run the install script:
