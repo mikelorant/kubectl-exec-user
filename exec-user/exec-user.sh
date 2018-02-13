@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 POD=${1}
+COMMAND=${2:=sh}
 
 KUBECTL=${KUBECTL_PLUGINS_CALLER}
 NAMESPACE=${KUBECTL_PLUGINS_CURRENT_NAMESPACE}
@@ -28,7 +29,7 @@ read -r -d '' OVERRIDES <<EOF
                   "-u",
                   "${USER}",
                   "${CONTAINERID}",
-                  "bash"
+                  "$COMMAND}"
                 ],
                 "volumeMounts": [
                     {
