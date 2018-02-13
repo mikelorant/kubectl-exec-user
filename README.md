@@ -8,7 +8,7 @@ This works by creating a pod on the same node as the container and mapping the d
 
 ## Install
 
-Run the install script:
+Run the install script to copy the plugin to `~/.kube/plugins`.
 
 ```
 ./install.sh
