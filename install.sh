@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir -p /$USER/.kube/plugins
+mkdir -p ~/.kube/plugins
 
-cp -r exec-user /$USER/.kube/plugins/
-chmod +x /$USER/.kube/plugins/exec-user
+cp -r exec-user ~/.kube/plugins/
+chmod +x ~/.kube/plugins/exec-user
