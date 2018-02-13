@@ -1,0 +1,11 @@
+name: "exec-user"
+shortDesc: "Exec user plugin"
+longDesc: >
+  Exec as a specified user into a container.
+example: ""
+command: "./exec-user.sh"
+flags:
+  - name: "user"
+    shorthand: "u"
+    desc: "User to execute as"
+    defValue: "root"
