@@ -46,7 +46,7 @@ Exec into first container in `example` pod with `bash` as user `admin`.
 kubectl plugin exec-user -u admin example-pod bash
 ```
 
-Exec into `another-container` in `example` pod with `bash` as user `admin`.
+Exec into `another` container in `example` pod with `bash` as user `admin`.
 ```
 kubectl plugin exec-user -c another-container -u admin example-pod bash
 ```
