@@ -16,22 +16,22 @@ Run the install script:
 
 ## Usage
 
-Exec into first container in `example-pod` with `sh`.
+Exec into first container in `example` pod with `sh` as user `root`.
 ```
-kubectl plugin exec-user example-pod
-```
-
-Exec into first container in `example-pod` with `bash`.
-```
-kubectl plugin exec-user example-pod bash
+kubectl plugin exec-user example
 ```
 
-Exec into first container in `example-pod` with `bash` as user `admin`.
+Exec into first container in `example` pod with `bash` as user `root`.
+```
+kubectl plugin exec-user example bash
+```
+
+Exec into first container in `example` pod with `bash` as user `admin`.
 ```
 kubectl plugin exec-user -u admin example-pod bash
 ```
 
-Exec into `another-container` in `example-pod` with `bash` as user `admin`.
+Exec into `another-container` in `example` pod with `bash` as user `admin`.
 ```
 kubectl plugin exec-user -c another-container -u admin example-pod bash
 ```
