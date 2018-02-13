@@ -31,6 +31,7 @@ Exec into first container in `example-pod` with `bash` as user `admin`.
 kubectl plugin exec-user -u admin example-pod bash
 ```
 
-## Todo
-
-- Add support for container name rather than defaulting to the first container.
+Exec into `another-container` in `example-pod` with `bash` as user `admin`.
+```
+kubectl plugin exec-user -c another-container -u admin example-pod bash
+```

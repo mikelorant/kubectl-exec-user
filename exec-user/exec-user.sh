@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
 
 POD=${1}
-COMMAND=${2:=sh}
+COMMAND=${2:-sh}
 
 KUBECTL=${KUBECTL_PLUGINS_CALLER}
 NAMESPACE=${KUBECTL_PLUGINS_CURRENT_NAMESPACE}
 USER=${KUBECTL_PLUGINS_LOCAL_FLAG_USER}
+export CONTAINER=${KUBECTL_PLUGINS_LOCAL_FLAG_CONTAINER}
 
 NODENAME=$( $KUBECTL --namespace ${NAMESPACE} get pod ${POD} -o go-template='{{.spec.nodeName}}' )
-CONTAINER=$( $KUBECTL --namespace ${NAMESPACE} get pod ${POD} -o go-template='{{ (index .status.containerStatuses 0).containerID }}' )
-CONTAINERID=${CONTAINER#*//}
+
+if [[ -n ${CONTAINER} ]]; then
+  DOCKER_CONTAINERID=$( eval $KUBECTL --namespace ${NAMESPACE} get pod ${POD} -o go-template="'{{ range .status.containerStatuses }}{{ if eq .name \"${CONTAINER}\" }}{{ .containerID }}{{ end }}{{ end }}'" )
+else
+  DOCKER_CONTAINERID=$( $KUBECTL --namespace ${NAMESPACE} get pod ${POD} -o go-template='{{ (index .status.containerStatuses 0).containerID }}' )
+fi
+CONTAINERID=${DOCKER_CONTAINERID#*//}
 
 read -r -d '' OVERRIDES <<EOF
 {
