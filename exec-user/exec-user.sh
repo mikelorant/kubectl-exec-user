@@ -29,7 +29,7 @@ read -r -d '' OVERRIDES <<EOF
                   "-u",
                   "${USER}",
                   "${CONTAINERID}",
-                  "$COMMAND}"
+                  "${COMMAND}"
                 ],
                 "volumeMounts": [
                     {
