@@ -12,3 +12,6 @@ flags:
   - name: "container"
     shorthand: "c"
     desc: "Container name. If omitted, the first container in the pod will be chosen"
+  - name: "name"
+    shorthand: "o"
+    desc: "Name for new exec-user pod. If omitted it will use exec-user + $POD"

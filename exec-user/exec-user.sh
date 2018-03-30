@@ -2,6 +2,8 @@
 
 POD=${1}
 COMMAND=${2:-sh}
+NEW_POD_NAME=${KUBECTL_PLUGINS_LOCAL_FLAG_NAME:-exec-user-${POD}}
+NEW_POD_NAME=${NEW_POD_NAME:0:63}  # max len allowed
 
 KUBECTL=${KUBECTL_PLUGINS_CALLER}
 NAMESPACE=${KUBECTL_PLUGINS_CURRENT_NAMESPACE}
@@ -61,4 +63,4 @@ read -r -d '' OVERRIDES <<EOF
 }
 EOF
 
-eval kubectl run -it --rm --restart=Never --image=docker --overrides="'${OVERRIDES}'" docker
+eval kubectl run --namespace=${NAMESPACE} -it --rm --restart=Never --image=docker --overrides="'${OVERRIDES}'" ${NEW_POD_NAME}

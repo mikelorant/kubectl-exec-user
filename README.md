@@ -24,10 +24,11 @@ If the command is not specified, falls back to the `sh` command.
 
 **Flags**
 
-| Name      | Shorthand | Default | Usage                                                                     |
-|-----------|-----------|---------|---------------------------------------------------------------------------|
-| user      | -u        | root    | Username or UID.                                                          |
-| container | -c        |         | Container name. If omitted, the first container in the pod will be chosen |
+| Name      | Shorthand | Default   | Usage                                                                     |
+|-----------|-----------|---------- |---------------------------------------------------------------------------|
+| user      | -u        | root      | Username or UID.                                                          |
+| container | -c        |           | Container name. If omitted, the first container in the pod will be chosen |
+| name      | -o        | exec-user | Name for new exec-user pod to avoid `pods "exec-user" already exists`     |                           | 
 
 ## Examples
 
